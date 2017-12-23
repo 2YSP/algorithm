@@ -143,8 +143,8 @@ public class AVLThree<AnyTpe extends Comparable<? super AnyTpe>> {
         }else if (compareResult > 0){
             t.right = remove(x,t.right);
         }else if (t.left != null && t.right != null){// two children
-            t.element = findMin(t.right).element;
-            t.right = remove(t.element,t.right);
+            t.element = findMin(t.right).element;//从右子树中找出最小的节点替换当前要删除的节点
+            t.right = remove(t.element,t.right);//删除右子树中需要拿出替换的节点
         }else {
             t = t.left != null ? t.left : t.right;
         }
